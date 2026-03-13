@@ -1,0 +1,41 @@
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["vex contributors"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yourusername/vex"
+keywords = ["build-system", "incremental", "cache", "cli"]
+categories = ["command-line-utilities", "development-tools"]
+
+[workspace.dependencies]
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1.0"
+thiserror = "1.0"
+clap = { version = "4.4", features = ["derive"] }
+axum = "0.7"
+tower = "0.4"
+tower-http = { version = "0.5", features = ["trace", "cors"] }
+sqlx = { version = "0.7", features = ["runtime-tokio", "sqlite", "macros"] }
+dashmap = "5.5"
+rayon = "1.8"
+sha2 = "0.10"
+hex = "0.4"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.6", features = ["v4", "serde"] }
+tempfile = "3.9"
+walkdir = "2.4"
+ignore = "0.4"
+num_cpus = "1.16"
+toml = "0.8"
+async-trait = "0.1"
+petgraph = "0.6"
+vex-core = { path = "crates/vex-core" }
+vex-cache = { path = "crates/vex-cache" }

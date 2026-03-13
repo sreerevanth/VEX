@@ -1,0 +1,36 @@
+[project]
+name = "my-app"
+version = "0.1.0"
+description = "Example vex project"
+
+[tasks.fmt]
+run = "cargo fmt --check"
+description = "Check code formatting"
+cache = false
+
+[tasks.lint]
+run = "cargo clippy -- -D warnings"
+inputs = ["src/**/*.rs", "Cargo.toml"]
+description = "Run clippy lints"
+depends_on = ["fmt"]
+
+[tasks.test]
+run = "cargo test"
+inputs = ["src/**/*.rs", "tests/**/*.rs"]
+description = "Run test suite"
+depends_on = ["lint"]
+
+[tasks.build]
+run = "cargo build --release"
+inputs = ["src/**/*.rs", "Cargo.toml"]
+outputs = ["target/release/my-app"]
+description = "Release build"
+depends_on = ["test"]
+cache = true
+
+[tasks.docker]
+run = "docker build -t my-app:latest ."
+inputs = ["Dockerfile", "target/release/my-app"]
+description = "Build Docker image"
+depends_on = ["build"]
+cache = false

@@ -1,0 +1,21 @@
+[package]
+name = "vex-cli"
+description = "Command-line interface for vex"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "vex"
+path = "src/main.rs"
+
+[dependencies]
+vex-core = { workspace = true }
+vex-cache = { workspace = true }
+tokio = { workspace = true }
+clap = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+serde_json = { workspace = true }

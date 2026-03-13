@@ -1,0 +1,6 @@
+/target
+.vex/
+*.db
+*.db-shm
+*.db-wal
+.env
